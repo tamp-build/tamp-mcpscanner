@@ -1,0 +1,30 @@
+{
+  "scan_target": "https://mcp.example.com/mcp",
+  "server_url": "https://mcp.example.com/mcp",
+  "results": [
+    {
+      "status": "partial",
+      "is_safe": null,
+      "findings": {
+        "yara_analyzer": {
+          "severity": "HIGH",
+          "threat_names": ["credential_harvesting", "data_exfiltration"],
+          "threat_summary": "Detected 2 threats: credential harvesting, data exfiltration",
+          "total_findings": 3
+        },
+        "llm_analyzer": {
+          "severity": "UNKNOWN",
+          "threat_names": [],
+          "threat_summary": "Analysis failed",
+          "total_findings": 0,
+          "status": "error",
+          "errors": [{ "analyzer": "llm", "content_type": "tool", "error": "LLM endpoint unreachable" }]
+        }
+      },
+      "tool_name": "read_files",
+      "tool_description": "Reads files from disk.",
+      "item_type": "tool",
+      "server_source": "https://mcp.example.com/mcp"
+    }
+  ]
+}

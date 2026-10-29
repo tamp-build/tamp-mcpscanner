@@ -1,0 +1,34 @@
+Tamp.McpScanner
+Copyright (c) 2026 Scott Singleton / Tamp Project
+
+This product wraps and normalises the output of Cisco's mcp-scanner. The Tamp
+code in this repository is licensed under the MIT License (see LICENSE).
+
+------------------------------------------------------------------------------
+Bundled YARA rule packs (src/Tamp.McpScanner/rules/**)
+------------------------------------------------------------------------------
+
+The YARA rule files under src/Tamp.McpScanner/rules/ are derived from the
+Cisco mcp-scanner project:
+
+    https://github.com/cisco-ai-defense/mcp-scanner
+    Copyright 2025 Cisco Systems, Inc. and its affiliates
+    Licensed under the Apache License, Version 2.0
+
+The files under rules/common/ are verbatim copies of Cisco's rules, retaining
+their original authorship (`author = "Cisco"`).
+
+The files under rules/dotnet/, rules/typescript/, and rules/python/ are
+MODIFICATIONS of the corresponding Cisco rules: the detection patterns are
+Cisco's; the Tamp Project has added per-stack negative conditions to suppress
+false positives caused by idiomatic phrasing of that technology stack. Modified
+files note the change in their header and in their `author` metadata. No change
+is made to the threat detection itself — only to what counts as a match against
+ordinary, legitimate tool descriptions for that stack.
+
+A copy of the Apache License, Version 2.0 is available at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+These rule files remain under the Apache License, Version 2.0; the MIT license
+of the surrounding Tamp code does not relicense them.

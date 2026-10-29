@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <RootNamespace>Tamp.McpScanner</RootNamespace>
+    <AssemblyName>Tamp.McpScanner</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package">
+    <PackageId>Tamp.McpScanner</PackageId>
+    <Description>Tamp wrapper for Cisco's mcp-scanner. Scans MCP servers (remote, static tool manifest, or config file) for tool-poisoning / prompt-injection / credential-harvesting and related threats, and normalises the scanner's JSON into SARIF 2.1.0 so MCP findings flow through the Tamp security chain (merge, dedup, DefectDojo/Dependency-Track push, tamp-findings). Offline analyzers (yara, readiness, prompt_defense) by default; LLM/vendor analyzers are opt-in. Findings are about advertised tools, not files — they carry SARIF logicalLocations, not synthesised paths. Noisy by nature: intended as nightly, non-blocking evidence, not a per-push gate.</Description>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup Label="Tamp dependencies (dual-mode — see Directory.Build.props)">
+    <ProjectReference Include="$(TampCorePath)" Condition="'$(TampCoreMode)' == 'project'" />
+    <PackageReference Include="Tamp.Core" Condition="'$(TampCoreMode)' == 'package'" />
+    <ProjectReference Include="$(TampSarifPath)" Condition="'$(TampCoreMode)' == 'project'" />
+    <PackageReference Include="Tamp.Sarif" Condition="'$(TampCoreMode)' == 'package'" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!--
+    Stack-aware rule packs ship inside the assembly as embedded resources and are
+    materialised to a temp directory at runtime (Cisco's rules-path flag wants a
+    directory). This works identically from a project reference or the published
+    nupkg, with no contentFiles packaging quirks. See StackRules + docs/stack-rules.md.
+  -->
+  <ItemGroup Label="Rule packs">
+    <EmbeddedResource Include="rules/**/*.yara" />
+    <EmbeddedResource Include="rules/**/*.yar" />
+    <EmbeddedResource Include="rules/**/*.rego" />
+  </ItemGroup>
+
+</Project>

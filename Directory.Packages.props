@@ -1,0 +1,34 @@
+<Project>
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <ItemGroup Label="Test stack">
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageVersion Include="xunit" Version="2.9.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup Label="Source link">
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.401" />
+  </ItemGroup>
+
+  <!--
+    Tamp.Core / Tamp.Sarif are pinned to 1.17.5 — the release that carries the
+    SARIF logicalLocations API (tamp#114). Release CI (TampCoreMode=package) uses
+    these; until 1.17.5 is published to nuget.org, package-mode restore will fail
+    and only project-mode (the default, sibling source) builds. Build.cs targets.
+  -->
+  <ItemGroup Label="Tamp packages">
+    <PackageVersion Include="Tamp.Core" Version="1.17.5" />
+    <PackageVersion Include="Tamp.Sarif" Version="1.17.5" />
+    <PackageVersion Include="Tamp.NetCli.V10" Version="1.17.5" />
+    <PackageVersion Include="Tamp.Components" Version="1.17.5" />
+    <PackageVersion Include="Tamp.Components.NetCli.V10" Version="1.17.5" />
+    <PackageVersion Include="Tamp.Telegram" Version="0.1.0" />
+  </ItemGroup>
+
+</Project>

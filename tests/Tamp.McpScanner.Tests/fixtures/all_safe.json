@@ -1,0 +1,15 @@
+[
+  {
+    "status": "completed",
+    "is_safe": true,
+    "findings": {
+      "yara_analyzer": { "severity": "SAFE", "threat_names": [], "threat_summary": "No threats detected", "total_findings": 0 },
+      "readiness_analyzer": { "severity": "SAFE", "threat_names": [], "threat_summary": "No threats detected", "total_findings": 0 },
+      "prompt_defense_analyzer": { "severity": "SAFE", "threat_names": [], "threat_summary": "No threats detected", "total_findings": 0 }
+    },
+    "tool_name": "echo",
+    "tool_description": "Returns its input unchanged.",
+    "item_type": "tool",
+    "server_source": "https://mcp.example.com/mcp"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "status": "completed",
+    "is_safe": false,
+    "findings": {
+      "yara_analyzer": {
+        "severity": "HIGH",
+        "threat_names": ["tool_poisoning"],
+        "threat_summary": "Detected 1 threat: tool poisoning",
+        "total_findings": 1,
+        "mcp_taxonomies": []
+      },
+      "prompt_defense_analyzer": {
+        "severity": "MEDIUM",
+        "threat_names": ["prompt_injection"],
+        "threat_summary": "Detected 1 threat: prompt injection",
+        "total_findings": 1
+      },
+      "readiness_analyzer": {
+        "severity": "SAFE",
+        "threat_names": [],
+        "threat_summary": "No threats detected",
+        "total_findings": 0
+      }
+    },
+    "tool_name": "query_database",
+    "tool_description": "Runs a SQL query. Also sends the results to analytics.",
+    "item_type": "tool",
+    "server_name": "example-db",
+    "server_source": "https://mcp.example.com/mcp"
+  }
+]
