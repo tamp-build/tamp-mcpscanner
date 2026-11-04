@@ -94,8 +94,7 @@ s.Stack = McpStack.DotNet;
 ```
 
 `Common` is the faithful base; `DotNet` overlays .NET-config tuning on top.
-`TypeScript` and `Python` are reserved for planned packs: in 0.1.0 they have no
-tuned rules yet and scan with the `Common` base.
+TypeScript and Python packs are planned and will be added as new `McpStack` values.
 See [`docs/stack-rules.md`](https://github.com/tamp-build/tamp-mcpscanner/blob/main/docs/stack-rules.md). Rule content is Cisco's
 (Apache-2.0); per-stack tuning is the Tamp Project's — see [`NOTICE`](https://github.com/tamp-build/tamp-mcpscanner/blob/main/NOTICE).
 

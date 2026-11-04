@@ -25,7 +25,7 @@ Requires Tamp.Core and Tamp.Sarif 1.17.5 or later (the `logicalLocations` releas
 - Stack-aware YARA rule packs, embedded in the assembly and written to a temp directory for `--rules-path` at scan time, which works the same from a project reference or the nupkg. The temp directory is deleted afterwards.
   - `common`: faithful copies of Cisco's 10 base rules (Apache-2.0, see `NOTICE`).
   - `dotnet`: overlays a .NET-tuned `credential_harvesting` that stops ordinary configuration access (`app.config`, `appsettings.json`, `IConfiguration`, `GetConnectionString`, …) from being flagged. Detection is otherwise unchanged.
-  - Select a pack with `Stack = McpStack.Common` / `McpStack.DotNet`, or bring a complete rule directory with `CustomRulesPath`, which wins over `Stack` and is never deleted. `McpStack.TypeScript` and `McpStack.Python` are reserved for planned packs and scan with the `common` base for now.
+  - Select a pack with `Stack = McpStack.Common` / `McpStack.DotNet`, or bring a complete rule directory with `CustomRulesPath`, which wins over `Stack` and is never deleted. TypeScript and Python packs are planned.
   - `StackRules.Materialize`, `MaterializeToTemp` and `PackFiles` are public, for inspecting or reusing a pack.
 - `IMcpScannerProcess`: the seam between the source and the scanner process. The default runs it through Tamp's `ProcessRunner`; tests substitute canned scanner JSON.
 - [`docs/false-positives.md`](docs/false-positives.md) and [`docs/stack-rules.md`](docs/stack-rules.md). MCP pattern detectors are noisy (about 78% false positives on the pattern layer in a 2026 audit), so this is meant for nightly, non-blocking evidence, not a per-push gate.
