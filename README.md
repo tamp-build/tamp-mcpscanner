@@ -81,7 +81,7 @@ Enabling any analyzer that reaches a model or vendor service marks the command
 MCP pattern detectors are noisy (a 2026 audit measured **~78% false positives**
 on the pattern layer). This wrapper is built to produce **nightly, non-blocking
 evidence** for `tamp-findings` to triage and trend — **not** a per-push gate.
-Do not fail a build on its raw output. See [`docs/false-positives.md`](docs/false-positives.md).
+Do not fail a build on its raw output. See [`docs/false-positives.md`](https://github.com/tamp-build/tamp-mcpscanner/blob/main/docs/false-positives.md).
 
 ## Stack-aware rule packs
 
@@ -90,12 +90,13 @@ A large share of that noise is stack-blindness: Cisco's rules match tool
 TypeScript phrasing misfires. Select a tuned pack:
 
 ```csharp
-s.Stack = McpStack.DotNet;   // or TypeScript, Python
+s.Stack = McpStack.DotNet;
 ```
 
 `Common` is the faithful base; `DotNet` overlays .NET-config tuning on top.
-See [`docs/stack-rules.md`](docs/stack-rules.md). Rule content is Cisco's
-(Apache-2.0); per-stack tuning is the Tamp Project's — see [`NOTICE`](NOTICE).
+TypeScript and Python packs are planned and will be added as new `McpStack` values.
+See [`docs/stack-rules.md`](https://github.com/tamp-build/tamp-mcpscanner/blob/main/docs/stack-rules.md). Rule content is Cisco's
+(Apache-2.0); per-stack tuning is the Tamp Project's — see [`NOTICE`](https://github.com/tamp-build/tamp-mcpscanner/blob/main/NOTICE).
 
 ## How findings are shaped
 
@@ -106,10 +107,11 @@ analyzer becomes an informational `level:none` coverage result so a partial
 scan is never mistaken for a clean one.
 
 > Requires `Tamp.Sarif` ≥ 1.17.5 (the SARIF `logicalLocations` support this
-> normalisation depends on).
+> normalisation depends on) and so `Tamp.Core` ≥ 1.17.5, which Tamp.Sarif ships
+> in lockstep with. Tested against 1.17.5 and 1.18.0.
 
 ## License
 
-MIT for the Tamp code (see [`LICENSE`](LICENSE)). The bundled YARA rule packs
+MIT for the Tamp code (see [`LICENSE`](https://github.com/tamp-build/tamp-mcpscanner/blob/main/LICENSE)). The bundled YARA rule packs
 are derived from Cisco's mcp-scanner and remain under Apache-2.0 (see
-[`NOTICE`](NOTICE)).
+[`NOTICE`](https://github.com/tamp-build/tamp-mcpscanner/blob/main/NOTICE)).

@@ -21,12 +21,6 @@ public enum McpStack
 
     /// <summary>.NET / NuGet MCP servers (e.g. the ModelContextProtocol C# SDK, <c>tamp mcp</c>).</summary>
     DotNet,
-
-    /// <summary>TypeScript / npm MCP servers.</summary>
-    TypeScript,
-
-    /// <summary>Python / PyPI MCP servers.</summary>
-    Python,
 }
 
 internal static class McpStackExtensions
@@ -36,8 +30,6 @@ internal static class McpStackExtensions
     {
         McpStack.Common => "common",
         McpStack.DotNet => "dotnet",
-        McpStack.TypeScript => "typescript",
-        McpStack.Python => "python",
         _ => throw new ArgumentOutOfRangeException(nameof(stack), stack, "Unknown stack."),
     };
 }

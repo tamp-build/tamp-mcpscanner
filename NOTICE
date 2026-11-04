@@ -18,7 +18,7 @@ Cisco mcp-scanner project:
 The files under rules/common/ are verbatim copies of Cisco's rules, retaining
 their original authorship (`author = "Cisco"`).
 
-The files under rules/dotnet/, rules/typescript/, and rules/python/ are
+The files under the per-stack folders (currently rules/dotnet/) are
 MODIFICATIONS of the corresponding Cisco rules: the detection patterns are
 Cisco's; the Tamp Project has added per-stack negative conditions to suppress
 false positives caused by idiomatic phrasing of that technology stack. Modified
