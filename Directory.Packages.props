@@ -17,10 +17,16 @@
   </ItemGroup>
 
   <!--
-    Tamp.Core / Tamp.Sarif are pinned to 1.17.5 — the release that carries the
-    SARIF logicalLocations API (tamp#114). Release CI (TampCoreMode=package) uses
-    these; until 1.17.5 is published to nuget.org, package-mode restore will fail
-    and only project-mode (the default, sibling source) builds. Build.cs targets.
+    Tamp.Core / Tamp.Sarif 1.17.5 is a deliberate floor, not "whatever was current":
+    - Tamp.Sarif 1.17.5 is the first release with the SARIF logicalLocations API
+      (tamp#114) that CiscoSarifMapper needs.
+    - Tamp.Sarif ships in lockstep with Tamp.Core and depends on Tamp.Core >= its own
+      version, so Tamp.Core cannot sit below 1.17.5 without an NU1605 downgrade.
+    - Nothing here needs anything newer. The code builds and its tests pass against
+      1.18.0 too, so consumers on 1.18.x float up without conflict. Don't raise this
+      without a concrete API need (an inflated floor caused NU1605 in tamp#119).
+    The pins below these two (Tamp.NetCli.V10, Tamp.Components*, Tamp.Telegram) are
+    only for the build/Build.csproj script and never reach the nupkg.
   -->
   <ItemGroup Label="Tamp packages">
     <PackageVersion Include="Tamp.Core" Version="1.17.5" />

@@ -22,10 +22,10 @@ public enum McpStack
     /// <summary>.NET / NuGet MCP servers (e.g. the ModelContextProtocol C# SDK, <c>tamp mcp</c>).</summary>
     DotNet,
 
-    /// <summary>TypeScript / npm MCP servers.</summary>
+    /// <summary>TypeScript / npm MCP servers. Reserved: no tuned pack ships yet, so this currently scans with the <see cref="Common"/> base.</summary>
     TypeScript,
 
-    /// <summary>Python / PyPI MCP servers.</summary>
+    /// <summary>Python / PyPI MCP servers. Reserved: no tuned pack ships yet, so this currently scans with the <see cref="Common"/> base.</summary>
     Python,
 }
 

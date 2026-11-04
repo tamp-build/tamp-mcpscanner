@@ -33,7 +33,7 @@ tool whose description legitimately mentions `app.config` or a NuGet restore
 step trips rules written with a different stack in mind.
 
 `Tamp.McpScanner` ships **stack-tuned rule packs** for exactly this. Select one
-with `Stack = McpStack.DotNet` (or `TypeScript` / `Python`). See
+with `Stack = McpStack.DotNet` (`TypeScript` / `Python` packs are planned; today they use the `Common` base). See
 [`stack-rules.md`](stack-rules.md).
 
 ## What the wrapper does to keep the noise legible

@@ -22,9 +22,8 @@ jobs:
       DOTNET_NOLOGO: '1'
       DOTNET_CLI_TELEMETRY_OPTOUT: '1'
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: '1'
-      # Resolves Tamp.Core / Tamp.Sarif from nuget.org. Requires 1.17.5 (the
-      # logicalLocations release, tamp#114) to be published — until then only
-      # local project-mode builds (TampCoreMode=project against sibling source).
+      # Resolves Tamp.Core / Tamp.Sarif from nuget.org at the pinned floor
+      # (1.17.5, the logicalLocations release, tamp#114).
       TampCoreMode: package
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

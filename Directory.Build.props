@@ -30,10 +30,9 @@
 
   <!--
     Tamp.Core AND Tamp.Sarif are dual-mode here. The default (project) references the
-    sibling monorepo clones so inner-loop dev builds against source — notably the
-    Tamp.Sarif logicalLocations API (tamp#114 / 1.17.5), which the normaliser depends on
-    and which is unreleased at the time this satellite was scaffolded. Release CI flips
-    TampCoreMode=package and pins the published versions in Directory.Packages.props.
+    sibling monorepo clones so inner-loop dev builds against source. CI and release flip
+    TampCoreMode=package and use the published versions pinned in Directory.Packages.props
+    (floor 1.17.5, the Tamp.Sarif logicalLocations release, tamp#114).
   -->
   <PropertyGroup Label="Tamp dependency mode">
     <TampCoreMode Condition="'$(TampCoreMode)' == ''">project</TampCoreMode>
