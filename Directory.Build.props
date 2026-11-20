@@ -41,7 +41,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Tamp central version (TAM-81 — single source of truth for all packable projects here)">
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
   </PropertyGroup>
 
 </Project>
